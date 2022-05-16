@@ -1,27 +1,29 @@
 #########################################
 # File Name: AnimatedCharacter.py
-# Description: Demonstrates how to animate a character 
+# Description: Demonstrates how to animate a character
 #########################################
 # sample change
 import pygame
 pygame.init()
 HEIGHT = 400
-WIDTH  = 640
-gameWindow=pygame.display.set_mode((WIDTH,HEIGHT))
-
-WHITE = ( 255, 255, 255)
+WIDTH = 640
+gameWindow = pygame.display.set_mode((WIDTH, HEIGHT))
+WHITE = (255, 255, 255)
 
 #---------------------------------------#
 #   functions                           #
 #---------------------------------------#
+
+
 def redrawGameWindow():
     gameWindow.fill(WHITE)
     gameWindow.blit(marioPic[marioPicNum], (marioX, marioY))
-    pygame.display.update()  
+    pygame.display.update()
+
 
 #---------------------------------------#
 #   main program                        #
-#---------------------------------------# 
+#---------------------------------------#
 GROUND_LEVEL = 300
 RUN_SPEED = 10
 JUMP_SPEED = -30
@@ -36,11 +38,12 @@ marioVx = 0
 marioVy = 0
 marioPicNum = 1                         # current picture of mario
 marioDir = "left"                       # direction in which mario is facing
-marioPic =[0]*12                        # 12 pictures represent all animated views of mario
+# 12 pictures represent all animated views of mario
+marioPic = [0]*12
 for i in range(12):                     # these pictures must be in the same folder
     marioPic[i] = pygame.image.load("images/mario" + str(i) + ".png")
 
-nextLeftPic  = [1, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+nextLeftPic = [1, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 nextRightPic = [4, 4, 4, 4, 5, 6, 7, 5, 4, 4, 4, 4]
 
 print("Hit ESC to end the program.")
@@ -49,10 +52,10 @@ FPS = 30
 
 #---------------------------------------#
 inPlay = True
-while inPlay:              
+while inPlay:
     redrawGameWindow()
     clock.tick(FPS)
-    
+
     pygame.event.clear()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
@@ -75,7 +78,7 @@ while inPlay:
             marioPicNum = 0             # the animation view is either 1 or 5,
         elif marioDir == "right":       # depending on the direction in which
             marioPicNum = 4             # mario is facing
-            
+
     if keys[pygame.K_UP] and marioY == GROUND_LEVEL:
         marioVy = JUMP_SPEED
         if marioDir == "left":          # when jumping,
@@ -98,6 +101,6 @@ while inPlay:
     if marioY > GROUND_LEVEL:
         marioY = GROUND_LEVEL
         marioVy = 0
-        
-#---------------------------------------# 
+
+#---------------------------------------#
 pygame.quit()
