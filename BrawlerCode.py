@@ -2,6 +2,7 @@
 # File Name: AnimatedCharacter.py
 # Description: Demonstrates how to animate a character 
 #########################################
+# sample change
 import pygame
 pygame.init()
 HEIGHT = 400
