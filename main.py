@@ -17,7 +17,7 @@ elapsed = 0
 triggered = False
 PERIOD = 3
 FPS = 24
-
+#sample change 2
 ###Loading and Defining Variables (loading)###
 pygame.display.set_caption("CardFighters")
 pygame.font.init()
