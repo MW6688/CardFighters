@@ -17,7 +17,7 @@ elapsed = 0
 triggered = False
 PERIOD = 3
 FPS = 24
-#sample change 2
+# sample change 2
 ###Loading and Defining Variables (loading)###
 pygame.display.set_caption("CardFighters")
 pygame.font.init()
@@ -80,35 +80,6 @@ while GameStatus == "Menu":
             PrintStatus()
 
 
-#############TIMERCODE###########
-PERIOD = 3
-referenceTime = time.time()
-elapsed = 0
-triggered = False
-print("Press the space bar if you dare!")
-clock = pygame.time.Clock()
-FPS = 24
-loadtimer = True
-while loadtimer:
-    pygame.event.clear()
-    clock.tick(FPS)
-
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            triggered = True
-            referenceTime = time.time()     # set reference time when the period is triggered
-
-    if triggered:
-        print(elapsed)
-        elapsed = round(time.time() - referenceTime, 1)
-        if elapsed > PERIOD:
-            print("KABOOM!!")
-            loadtimer = False
-            break
-
-###########TIMERCODE################
-
-
 def loadGIF(filename):  # Converting the capybara gif into sprite frames#
     pilImage = Image.open(filename)
     frames = []
@@ -156,7 +127,7 @@ while GameStatus == "Loading":
     all_sprites.draw(gameWindow)
     pygame.display.flip()
 
-    gameWindow.blit(loadinggraphics, (215, 100))
+    gameWindow.blit(loadinggraphics, (180, 100))
     print(elapsed)
     pygame.event.clear()
 
