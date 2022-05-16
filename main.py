@@ -64,7 +64,7 @@ GameStatus = "Menu"
 def PrintStatus():
     print("Now in "+GameStatus + " Stage")
 
-
+#sample change
 while GameStatus == "Menu":
     gameWindow.blit(Menubackground, (0, 0))
     gameWindow.blit(GameTitle, (60, -100))
