@@ -318,6 +318,61 @@ while GameStatus == "Character Select":
                 GameStatus = "Select Stage"
     pygame.display.update()
     pygame.time.delay(80)
+
+plystgc = 0
+bplyconf = False
+
+#Stage 1 Code#
+stg1 = pygame.image.load("stg1.png")
+
+#Stage 2 Code#
+stg2 = pygame.image.load("plc.png")
+
+#Stage 3 Code#
+stg3 = pygame.image.load("plc.png")
+
+#PlayerChoiceClearText
+pygame.font.init()
+Choicefont = pygame.font.SysFont("Bungee-Regular.ttf", 30)
+Choicegraphics = Choicefont.render("Click Here to Confirm Your Stage", 1, (0,0,0))
+
+while GameStatus == "Select Stage":
+   mouseX, mouseY = pygame.mouse.get_pos()
+   #print(pygame.mouse.get_pos())
+   keys = pygame.mouse.get_pressed()
+   pygame.event.clear()
+   gameWindow.fill ((0,0,0))
+   mouseX, mouseY = pygame.mouse.get_pos()
+   gameWindow.blit(stg1, (0, 0,))
+   gameWindow.blit(stg2, (0, 200,))
+   gameWindow.blit(stg3, (0, 400,))
+   pygame.draw.rect(gameWindow, (235, 189, 91), pygame.Rect(0, 600, 600, 200),  0)  
+   gameWindow.blit(Choicegraphics, (60, 650))
+   pygame.display.update()
+   pygame.time.delay(50)
+   if mouseY < 200:
+      if keys[0]:
+        print("stg1 Clicked")
+        plystgc = 1
+   if mouseY > 200 and mouseY < 400:
+      if keys[0]:
+        print("stg2 Clicked")
+        plystgc = 2
+   if mouseY > 400 and mouseY < 600:
+      if keys[0]:
+        print("stg3 Clicked")
+        plystgc = 3
+   if mouseY >600:
+      if keys[0]:
+          if plystgc == 0:
+            print("please select a stage first")
+          else:
+            print("Confirmed")
+            bplyconf = True
+    
+   pygame.display.update()
+   pygame.time.delay(80)
+
 print("here")
 pygame.quit()
 exit()
