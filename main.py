@@ -87,6 +87,21 @@ LogoP1 = pygame.image.load('p1_cho.png')
 #CharChoiceLogoP2#
 LogoP2 = pygame.image.load('p2_cho.png')
 
+#GameTitlePNG#
+Salbac = pygame.image.load('SalCharBac.png')
+Salbac = pygame.transform.scale(Salbac, (200,800))
+#GameTitlePNG#
+Marbac = pygame.image.load('MarCharBac.png')
+Marbac = pygame.transform.scale(Marbac, (200,800))
+
+#GameTitlePNG#
+Sunbac = pygame.image.load('SunCharBac.png')
+Sunbac = pygame.transform.scale(Sunbac, (200,800))
+
+#GameTitlePNG#
+Dobac = pygame.image.load('DoCharBac.png')
+Dobac = pygame.transform.scale(Dobac, (200,800))
+
 GameStatus = "Menu"
 
 
@@ -200,13 +215,10 @@ while GameStatus == "Character Select":
     mouseX, mouseY = pygame.mouse.get_pos()
     keys = pygame.mouse.get_pressed()
     pygame.event.clear()
-    pygame.draw.rect(gameWindow, Char1Col, pygame.Rect(
-        0, 0, 200, 800),  0)  # CharlSel1
-    pygame.draw.rect(gameWindow, Char2Col, pygame.Rect(150, 0, 200, 800),  0)
-# CharSel2
-    pygame.draw.rect(gameWindow, Char3Col, pygame.Rect(300, 0, 200, 800),  0)
-# CharSel3
-    pygame.draw.rect(gameWindow, Char4Col, pygame.Rect(450, 0, 200, 800),  0)
+    gameWindow.blit(Salbac, (0,0))
+    gameWindow.blit(Marbac, (150,0))
+    gameWindow.blit(Dobac, (300,0))
+    gameWindow.blit(Sunbac, (450,0))
     pygame.draw.rect(gameWindow, WHITE, pygame.Rect(0, 0, 600, 50),  0)
     gameWindow.blit(Choicegraphics, (5, 5))
     pygame.draw.rect(gameWindow, DispCol, pygame.Rect(0, 800, 100, 100),  0)
